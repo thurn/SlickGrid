@@ -2,6 +2,8 @@
 
 (function($) {
 
+    var IMAGES = "slickgrid/images";
+
     var SlickEditor = {
 
         SelectorCellFormatter : function(row, cell, value, columnDef, dataContext) {
@@ -38,13 +40,13 @@
         },
 
         BoolCellFormatter : function(row, cell, value, columnDef, dataContext) {
-            return value ? "<img src='../images/tick.png'>" : "";
+            return value ? "<img src='"+IMAGES+"/tick.png'>" : "";
         },
 
         TaskNameFormatter : function(row, cell, value, columnDef, dataContext) {
             // todo:  html encode
             var spacer = "<span style='display:inline-block;height:1px;width:" + (2 + 15 * dataContext["indent"]) + "px'></span>";
-            return spacer + " <img src='../images/expand.gif'>&nbsp;" + value;
+            return spacer + " <img src='" + IMAGES + "/expand.gif'>&nbsp;" + value;
         },
 
         ResourcesFormatter : function(row, cell, value, columnDef, dataContext) {
@@ -54,14 +56,14 @@
                 return "";
 
             if (columnDef.width < 50)
-                return (resources.length > 1 ? "<center><img src='../images/user_identity_plus.gif' " : "<center><img src='../images/user_identity.gif' ") +
+                return (resources.length > 1 ? "<center><img src='" + IMAGES +"/user_identity_plus.gif' " : "<center><img src='" + IMAGES + "/user_identity.gif' ") +
                         " title='" + resources.join(", ") + "'></center>";
             else
                 return resources.join(", ");
         },
 
         StarFormatter : function(row, cell, value, columnDef, dataContext) {
-            return (value) ? "<img src='../images/bullet_star.png' align='absmiddle'>" : "";
+            return (value) ? "<img src='" + IMAGES + "/bullet_star.png' align='absmiddle'>" : "";
         },
 
 
@@ -199,7 +201,7 @@
                 $input.datepicker({
                     showOn: "button",
                     buttonImageOnly: true,
-                    buttonImage: "../images/calendar.gif",
+                    buttonImage: IMAGES + "/calendar.gif",
                     beforeShow: function() { calendarOpen = true },
                     onClose: function() { calendarOpen = false }
                 });
@@ -453,7 +455,7 @@
             }
 
             this.init = function() {
-                $input = $("<IMG src='../images/bullet_star.png' align=absmiddle tabIndex=0 title='Click or press Space to toggle' />")
+                $input = $("<IMG src='"+IMAGES+"/bullet_star.png' align=absmiddle tabIndex=0 title='Click or press Space to toggle' />")
                     .bind("click keydown", toggle)
                     .appendTo(args.container)
                     .focus();

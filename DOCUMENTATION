@@ -1,0 +1,118 @@
+OPTIONS:
+* rowHeight - (default 25px) Row height in pixels.
+* enableAddRow - (default false) If true, a blank row will be displayed at the bottom - typing values in that row will add a new one.
+* leaveSpaceForNewRows - (default false)
+* editable - (default false) If false, no cells will be switched into edit mode.
+* autoEdit - (default true) Cell will not automatically go into edit mode when selected.
+* enableCellNavigation - (default true) If false, no cells will be selectable.
+* enableCellRangeSelection - (default false) If true, user will be able to select a cell range. onCellRangeSelected event will be fired.
+* defaultColumnWidth - (default 80px) Default column width in pixels (if columns[cell].width is not specified).
+* enableColumnReorder - (default true) Allows the user to reorder columns.
+* asyncEditorLoading - (default false) Makes cell editors load asynchronously after a small delay.
+* This greatly increases keyboard navigation speed.
+* asyncEditorLoadDelay - (default 100msec) Delay after which cell editor is loaded. Ignored unless asyncEditorLoading is true.
+* forceFitColumns - (default false) Force column sizes to fit into the viewport (avoid horizontal scrolling).
+* enableAsyncPostRender - (default false) If true, async post rendering will occur and asyncPostRender delegates on columns will be called.
+* asyncPostRenderDelay - (default 60msec) Delay after which async post renderer delegate is called.
+* autoHeight - (default false) If true, vertically resizes to fit all rows.
+* editorLock - (default Slick.GlobalEditorLock) A Slick.EditorLock instance to use for controlling concurrent data edits.
+* showSecondaryHeaderRow - (default false) If true, an extra blank (to be populated externally) row will be displayed just below the header columns.
+* secondaryHeaderRowHeight - (default 25px) The height of the secondary header row.
+* syncColumnCellResize - (default false) Synchronously resize column cells when column headers are resized
+* rowCssClasses - (default null) A function which (given a row's data item as an argument) returns a space-delimited string of CSS classes that will be applied to the slick-row element. Note that this should be fast, as it is called every time a row is displayed.
+* cellHighlightCssClass - (default "highlighted") A CSS class to apply to cells highlighted via setHighlightedCells().
+* cellFlashingCssClass - (default "flashing") A CSS class to apply to flashing cells (flashCell()).
+* formatterFactory - (default null) A factory object responsible to creating a formatter for a given cell.
+* Must implement getFormatter(column).
+* editorFactory - (default null) A factory object responsible to creating an editor for a given cell.
+* Must implement getEditor(column).
+
+COLUMN DEFINITION (columns):
+* id - Column ID.
+* name - Column name to put in the header.
+* toolTip - Tooltip (if different from name).
+* field - Property of the data context to bind to.
+* formatter - (default 'return value || ""') Function responsible for rendering the contents of a cell. Signature: function formatter(row, cell, value, columnDef, dataContext) { ... return "..."; }
+* editor - An Editor class.
+* validator - An extra validation function to be passed to the editor.
+* unselectable - If true, the cell cannot be selected (and therefore edited).
+* cannotTriggerInsert - If true, a new row cannot be created from just the value of this cell.
+* width - Width of the column in pixels.
+* resizable - (default true) If false, the column cannot be resized.
+* sortable - (default false) If true, the column can be sorted (onSort will be called).
+* minWidth - Minimum allowed column width for resizing.
+* maxWidth - Maximum allowed column width for resizing.
+* cssClass - A CSS class to add to the cell.
+* reormatter(row, cell, value, columnDef, dataContext) { ... return "..."; }
+* editor - An Editor class.
+* validator - An extra validation function to be passed to the editor.
+* unselectable - If true, the cell cannot be selected (and therefore edited).
+* cannotTriggerInsert - If true, a new row cannot be created from ju p"; }
+* editor - An Editor class.
+* validator - An extra val
+
+* EVENTS:
+* onSort -
+* onHeaderContextMenu -
+* onClick -
+* onDblClick -
+* onContextMenu -
+* onKeyDown -
+* onAddNewRow -
+* onValidationError -
+* onViewportChanged -
+* onSelectedRowsChanged -
+* onColumnsReordered -
+* onColumnsResized -
+* onBeforeMoveRows -
+* onMoveRows -
+* onCellChange - Raised when cell has been edited. Args: row,cell,dataContext.
+* onBeforeEditCell - Raised before a cell goes into edit mode. Return false to cancel. Args: row,cell,dataContext.
+* onBeforeCellEditorDestroy - Raised before a cell editor is destroyed. Args: current cell editor.
+* onBeforeDestroy - Raised just before the grid control is destroyed (part of the destroy() method).
+* onCurrentCellChanged - Raised when the selected (active) cell changed. Args: {row:currentRow, cell:currentCell}.
+* onCellRangeSelected - Raised when a user selects a range of cells. Args: {from:{row,cell}, to:{row,cell}}.
+*
+
+METHODS:
+getColumns
+setColumns
+getOptions
+setOptions
+setData
+destroy
+getColumnIndex
+autosizeColumns
+updateCell
+updateRow
+removeRow
+removeRows
+removeAllRows
+render
+invalidate
+setHighlightedCells
+flashCell
+getViewport
+resizeCanvas
+updateRowCount
+getCellFromPoint
+getCurrentCell
+getCurrentCellNode
+resetCurrentCell
+navigatePrev
+navigateNext
+navigateUp
+navigateDown
+navigateLeft
+navigateRight
+gotoCell
+editCurrentCell
+getCellEditor
+scrollRowIntoView
+getSelectedRows
+setSelectedRows
+getSecondaryHeaderRow
+showSecondaryHeaderRow
+hideSecondaryHeaderRow
+setSortColumn
+getCurrentCellPosition
